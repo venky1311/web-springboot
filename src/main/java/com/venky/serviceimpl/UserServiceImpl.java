@@ -1,28 +1,33 @@
 package com.venky.serviceimpl;
 
 import java.util.List;
-
-import com.venky.dto.Userdto;
+import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.venky.converter.UserConverter;
+import com.venky.dto.UserDto;
+import com.venky.repository.UserRepository;
 import com.venky.service.UserService;
 
+@Service
 public class UserServiceImpl implements UserService{
+	
+	@Autowired
+	UserRepository userRepository;
 
 	@Override
-	public Userdto getUserById(Integer Id) {
-		
-		return null;
+	public UserDto getUserById(Integer userId) {
+		return UserConverter.entityToDto(userRepository.getOne(userId));
 	}
 
 	@Override
-	public void saveUser(Userdto userdto) {
-		// TODO Auto-generated method stub
-		
+	public void saveUser(UserDto userDto) {
+		userRepository.save(UserConverter.dtoToEntity(userDto));
 	}
 
 	@Override
-	public List<Userdto> getAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<UserDto> getAllUsers() {
+		return userRepository.findAll().stream().map(UserConverter::entityToDto).collect(Collectors.toList());
 	}
 
 }

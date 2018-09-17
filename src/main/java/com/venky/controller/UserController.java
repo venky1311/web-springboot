@@ -9,35 +9,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.venky.dto.Userdto;
+import com.venky.dto.UserDto;
 import com.venky.service.UserService;
 import com.venky.utils.Constants;
 
 
 @RequestMapping("/user")
 @RestController
-public class UserController 
-{
+public class UserController {
 	@Autowired
-	UserService userservice;
-	
-	@RequestMapping(value =  Constants.GET_USER_BY_ID)
-	public Userdto getUserbyId(@PathVariable Integer userId)
-	{
-		return userservice.getUserById(userId);
-	}
-	
-	@RequestMapping(value = Constants.GET_ALL_USERS)
-	public List <Userdto> getAllUsers()
-	{
-		return userservice.getAllUsers();
-	}
-	
-	@RequestMapping(value = Constants.SAVE_USER, method = RequestMethod.POST)
-	public void saveUser(@RequestBody Userdto userdto)
-	{
-		userservice.saveUser(userdto);
-	}
-	
+	UserService userService;
 
+	@RequestMapping(Constants.GET_USER_BY_ID)
+	public UserDto getUserById(@PathVariable Integer userId) {
+		return userService.getUserById(userId);
+	}
+	
+	@RequestMapping(Constants.GET_ALL_USERS)
+	public List<UserDto> getAllUsers() {
+		return userService.getAllUsers();
+	}
+	
+	@RequestMapping(value= Constants.SAVE_USER, method= RequestMethod.POST)
+	public void saveUser(@RequestBody UserDto userDto) {
+		userService.saveUser(userDto);
+	}
 }

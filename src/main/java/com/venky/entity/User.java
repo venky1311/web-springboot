@@ -1,7 +1,7 @@
 package com.venky.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,57 +15,48 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-public class User implements Serializable
-{
+public class User implements Serializable{
+
+    private static final long serialVersionUID = 0x62A6DA99AABDA8A8L;
+	
 	@Column
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
-	private Integer UserId;
-	
-	@Column
-	private String UserName;
-	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private List<Skills> skills = new ArrayList<>();
-	
-	
+	private Integer userId;
+    @Column
+    private String userName;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Skill> skills= new LinkedList<>();
 
-	public Integer getUserId() {
-		return UserId;
-	}
+    public Integer getUserId() {
+        return userId;
+    }
 
-	public void setUserId(Integer userId) {
-		UserId = userId;
-	}
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
-	public String getUserName() {
-		return UserName;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
-	public void setUserName(String userName) {
-		UserName = userName;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	public List<Skills> getSkills() {
-		return skills;
-	}
+    public List<Skill> getSkills() {
+        return skills;
+    }
 
-	public void setSkills(List<Skills> skills) {
-		this.skills = skills;
-	}
-	
-	public User()
-	{
-		
-	}
-	
-	public User(String userName, List<Skills> skills)
-	{
-		this.UserName = userName;
-		this.skills = skills;
-		
-	}
-	
-	
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
+    }
 
+    public User() {
+    }
+
+    public User(String userName, List<Skill> skills) {
+        this.userName = userName;
+        this.skills = skills;
+    }
 }

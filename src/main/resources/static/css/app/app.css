@@ -1,4 +1,5 @@
-@body{
+span.body{
+	background: url('images/login.jpg');
     background-color: #efefef;
 }
 span.spacing{
@@ -9,4 +10,31 @@ input.custom-width{
 }
 input.spacing{
     margin-right: 5px;
+}
+
+.center {
+    text-align: center;
+    /* border: 3px solid green; */
+    width : 100%; hight:45x ;
+}
+.user,.pass,.login {
+	width: 100%;
+	height: 45px;
+	border: none;
+	border-radius: 5px;
+	font-size: 2vw;
+	font-weight: lighter;
+	margin-bottom: 30px;
+	}
+.user,.pass,.login {
+		font-size: 3vw
+	}
+	
+.container-holder {
+    max-width: 1250px;
+    min-height: 350px;
+    border: 6px solid #DADADA;
+    position: relative;
+    border-top: 1px solid #fff;
+    margin-bottom: 30px;
 }

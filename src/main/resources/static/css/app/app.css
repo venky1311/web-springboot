@@ -38,3 +38,6 @@ input.spacing{
     border-top: 1px solid #fff;
     margin-bottom: 30px;
 }
+.img {
+	border-radius: 50%;
+}

@@ -20,9 +20,7 @@ user {
 	background-size: cover;
 }
 
-img {
-	border-radius: 50%;
-}
+
 </style>
 <script src="js/lib/angular.min.js"></script>
 <script src="js/lib/angular-route.min.js"></script>
@@ -30,24 +28,25 @@ img {
 <script src="js/app/LoginController.js"></script>
 <link rel="stylesheet" href="css/app/app.css" />
 <link rel="stylesheet" href="css/lib/bootstrap.min.css" />
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" />
 </head>
 
 <body ng-app="log">
 	<!-- <img ng-src="login.jpg" alt="descp"/> -->
-
-	<!-- <h1>{{username}}</h1> -->
 	<div ng-controller="LoginController as vm">
 		<div class="center">
-
 			<div class="container-holder">
 				<h1>Login here</h1>
 				<img alt="" ng-src="./images/img_icon.png" style="width: 100px" />
 				<!-- 	<h1>Login here</h1> -->
 				<div>
-					<label for="username"><b>Username:</b></label><input type="text"
+				<div>
+				<span>Username:</span>
+				<label for="username"><b>Username:</b></label>
+				</div>
+					
+					<input type="text"
 						id="username" name="username" ng-model="username"
 						placeholder="enter the user name" />
 				</div>
@@ -61,7 +60,6 @@ img {
 				<div>
 					<button type="submit" class="btn btn-primary" ng-click="loginer()">Login</button>
 				</div>
-				<!-- <img alt="" ng-src="./images/image.jpg" /> -->
 			</div>
 		</div>
 	</div>

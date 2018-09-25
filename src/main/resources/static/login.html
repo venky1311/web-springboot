@@ -25,13 +25,14 @@ user {
 <body ng-app="log">
 	<!-- <img ng-src="login.jpg" alt="descp"/> -->
 
-	<form action="">
+	<form name="Loginform">
 		<!-- <h1>{{username}}</h1> -->
 		<div class="center" ng-controller="LoginController">
 			<h1>Login here !</h1>
 			<img alt="" ng-src="./images/img_icon.png" style="width: 100px" />
 			<!-- 	<h1>Login here</h1> -->
-			<div class="form-group">
+			
+			<div class="form-group" ng-class="{'has-error': loginform.username.$invalid && loginform.username.$dirty, 'has-success':loginform.username.$valid}">
 				<label for="username"><b>Username:</b></label><input type="text"
 					id="username" name="username" ng-model="username"
 					placeholder="enter the user name" />

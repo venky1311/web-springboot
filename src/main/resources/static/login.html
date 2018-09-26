@@ -22,30 +22,30 @@ user {
 <link rel="stylesheet" href="css/lib/bootstrap.min.css" />
 </head>
 
-<body ng-app="log">
+<body ng-app="log" ng-controller="LoginController" >
 	<!-- <img ng-src="login.jpg" alt="descp"/> -->
 
-	<form name="Loginform">
+	<form  name="loginform" novalidate>
 		<!-- <h1>{{username}}</h1> -->
-		<div class="center" ng-controller="LoginController">
+		<div class="center" >
 			<h1>Login here !</h1>
 			<img alt="" ng-src="./images/img_icon.png" style="width: 100px" />
 			<!-- 	<h1>Login here</h1> -->
-			
-			<div class="form-group" ng-class="{'has-error': loginform.username.$invalid && loginform.username.$dirty, 'has-success':loginform.username.$valid}">
-				<label for="username"><b>Username:</b></label><input type="text"
-					id="username" name="username" ng-model="username"
-					placeholder="enter the user name" />
+
+			<div class="form-group" >
+				<label for="username"><b>Username:</b></label> 
+				<input type="text" id="username" name="username" ng-model="username" placeholder="enter the user name" required/> 
+				<p style="color:red;" ng-show="loginform.username.$touched && loginform.username.$invalid"> User name is required</p>
+			</div>
+
+			<div class="form-group" >
+				<label for="password"><b>Password:</b></label>
+				<input  type="text" id="password" name="password" ng-model="password" placeholder="enter the password" ng-minLength="3" required/>
+					<p style="color: red;" ng-show="loginform.password.$touched && loginform.password.$invalid">Please Enter at least 3 characters</p>
 			</div>
 
 			<div class="form-group">
-				<label for="password"><b>Password:</b></label><input type="text"
-					id="password" name="password" ng-model="password"
-					placeholder="enter the password" />
-			</div>
-
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary" ng-click="login()">Login</button>
+				<button type="submit" class="btn btn-primary" ng-disabled="loginform.username.$invalid || loginform.password.$invalid" ng-click="login()">Login</button>
 			</div>
 			<!-- <img alt="" ng-src="./images/image.jpg" /> -->
 		</div>

@@ -11,7 +11,7 @@ input.spacing{
 body {
 	background-image: url('../images/image.jpg');
 	/* text-align: center; */
-	/* border: 3px solid green; */
+	border: 5px solid white;
 }
 img {
 	border-radius: 50%;

@@ -19,7 +19,9 @@ user {
 <script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
 <script src="js/app/LoginController.js"></script>
 <link rel="stylesheet" href="css/app/app.css" />
-<link rel="stylesheet" href="css/lib/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/lib/bootstrap.min.css" /> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body ng-app="log" ng-controller="LoginController" >
@@ -34,15 +36,24 @@ user {
 
 			<div class="form-group" >
 				<label for="username"><b>Username:</b></label> 
+				<div class="col-md-12">
+				<span class="input-group input-group-md"></span>
+				<span class="glyphicon glyphicon-user"></span>				
 				<input type="text" id="username" name="username" ng-model="username" placeholder="enter the user name" required/> 
 				<p style="color:red;" ng-show="loginform.username.$touched && loginform.username.$invalid"> User name is required</p>
+			
+			</div>
 			</div>
 
 			<div class="form-group" >
+				<div class="col-md-12">
 				<label for="password"><b>Password:</b></label>
+				<span class="input-group input-group-md"></span>
+				<span class="glyphicon glyphicon-lock"></span>
+				
 				<input  type="text" id="password" name="password" ng-model="password" placeholder="enter the password" ng-minLength="3" required/>
 					<p style="color: red;" ng-show="loginform.password.$touched && loginform.password.$invalid">Please Enter at least 3 characters</p>
-			</div>
+			</div></div>
 
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary" ng-disabled="loginform.username.$invalid || loginform.password.$invalid" ng-click="login()">Login</button>

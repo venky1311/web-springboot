@@ -1,4 +1,11 @@
 var app = angular.module('log', []);
+/*app.config(function($RouteProvider){
+	$RouteProvider
+	.when("/login", 
+			{
+				templateUrl: "login.html"
+			});
+});*/
 app.controller('LoginController', function($scope) {
 /*	$scope.username = 'venky';
 	$scope.password = 'abc';*/
@@ -14,7 +21,11 @@ app.controller('LoginController', function($scope) {
 			{
 			console.error("unsuccessful");
 			}
-
 	}
-
 });
+
+
+
+
+
+

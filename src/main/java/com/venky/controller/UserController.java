@@ -13,10 +13,10 @@ import com.venky.dto.UserDto;
 import com.venky.service.UserService;
 import com.venky.utils.Constants;
 
-
-@RequestMapping("/user")
 @RestController
+@RequestMapping("/user")
 public class UserController {
+	
 	@Autowired
 	UserService userService;
 

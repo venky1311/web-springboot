@@ -25,6 +25,9 @@ public class User implements Serializable{
 	private Integer userId;
     @Column
     private String userName;
+    @Column
+    private String passWord;
+    
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Skill> skills= new LinkedList<>();
 
@@ -44,7 +47,15 @@ public class User implements Serializable{
         this.userName = userName;
     }
 
-    public List<Skill> getSkills() {
+    public String getPassWord() {
+		return passWord;
+	}
+
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
+	}
+
+	public List<Skill> getSkills() {
         return skills;
     }
 
@@ -55,8 +66,9 @@ public class User implements Serializable{
     public User() {
     }
 
-    public User(String userName, List<Skill> skills) {
+    public User(String userName, String passWord, List<Skill> skills) {
         this.userName = userName;
+        this.passWord = passWord;
         this.skills = skills;
     }
 }

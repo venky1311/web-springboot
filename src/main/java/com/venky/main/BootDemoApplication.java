@@ -30,11 +30,11 @@ public class BootDemoApplication
 
 	}
 	
-	@PostConstruct
+	/*@PostConstruct
 	public void setupDbWithData(){
-		User user= new User("Venky", null);
+		User user= new User("Venky", "abc", null);
 		user.setSkills(Arrays.asList(new Skill("java"), new Skill("js")));
 		user= userRepository.save(user);
 	}
-
+*/
 }

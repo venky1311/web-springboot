@@ -1,13 +1,31 @@
-(function () {
-	   'use strict';
+var app = angular.module('log', []);
+/*app.config(function($RouteProvider){
+	$RouteProvider
+	.when("/login", 
+			{
+				templateUrl: "login.html"
+			});
+});*/
+app.controller('LoginController', function($scope) {
+/*	$scope.username = 'venky';
+	$scope.password = 'abc';*/
 
-	   angular
-	      .module('log', [])
-	      .controller(, LoginController);
+	$scope.login = function() 
+	{
+		 if($scope.username =='venky' && $scope.password == 'abc')
+			{
+			 alert("success");
+			console.log("successfully login!!");
+			}
+		else
+			{
+			console.error("unsuccessful");
+			}
+	}
+});
 
-	      function LoginController (){
-	         var vm = this;
-	         vm.AbsoluteImageUrl="./images/image.jpg";
-	         vm.ImageFileName="AngularJS-large.png";
-	      }
-	})();
+
+
+
+
+

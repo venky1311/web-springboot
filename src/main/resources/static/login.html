@@ -13,6 +13,13 @@ user {
 	background-position: center center;
 	background-size: cover;
 }
+.icon {
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
 </style>
 <script src="js/lib/angular.min.js"></script>
 <script src="js/lib/angular-route.min.js"></script>
@@ -25,35 +32,25 @@ user {
 </head>
 
 <body ng-app="log" ng-controller="LoginController" >
-	<!-- <img ng-src="login.jpg" alt="descp"/> -->
 
+<div class="background"> 
+<div class="center">
+<div class="content">
+<h1>Login here !</h1>
 	<form  name="loginform" novalidate>
-		<!-- <h1>{{username}}</h1> -->
-		<div class="center" >
-			<h1>Login here !</h1>
-			<img alt="" ng-src="./images/img_icon.png" style="width: 100px" />
-			<!-- 	<h1>Login here</h1> -->
-
+		<div >
+			<img alt="" ng-src="./images/img_icon.png"  style="width: 100px" />
 			<div class="form-group" >
-				<label for="username"><b>Username:</b></label> 
-				<div class="col-md-12">
-				<span class="input-group input-group-md"></span>
-				<span class="glyphicon glyphicon-user"></span>				
+				<!-- <label for="username"><strong>Username:</strong></label>  -->
 				<input type="text" id="username" name="username" ng-model="username" placeholder="enter the user name" required/> 
-				<p style="color:red;" ng-show="loginform.username.$touched && loginform.username.$invalid"> User name is required</p>
-			
-			</div>
+				<span style="color:red;" ng-show="loginform.username.$touched && loginform.username.$invalid"> User name is required</span>
 			</div>
 
 			<div class="form-group" >
-				<div class="col-md-12">
-				<label for="password"><b>Password:</b></label>
-				<span class="input-group input-group-md"></span>
-				<span class="glyphicon glyphicon-lock"></span>
-				
+				<!-- <label for="password"><b>Password:</b></label>			 -->	
 				<input  type="text" id="password" name="password" ng-model="password" placeholder="enter the password" ng-minLength="3" required/>
-					<p style="color: red;" ng-show="loginform.password.$touched && loginform.password.$invalid">Please Enter at least 3 characters</p>
-			</div></div>
+					<span style="color: red;" ng-show="loginform.password.$touched && loginform.password.$invalid">Please Enter at least 3 characters</span>
+			</div>
 
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary" ng-disabled="loginform.username.$invalid || loginform.password.$invalid" ng-click="login()">Login</button>
@@ -61,5 +58,8 @@ user {
 			<!-- <img alt="" ng-src="./images/image.jpg" /> -->
 		</div>
 	</form>
+	</div>
+	</div>
+	</div>
 </body>
 </html>

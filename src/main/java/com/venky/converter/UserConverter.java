@@ -9,7 +9,7 @@ public class UserConverter {
 	public static User dtoToEntity(UserDto userDto) {
 		User user = new User(userDto.getUserName(),userDto.getPassWord(), null);
 		user.setUserId(userDto.getUserId());
-		user.setSkills(userDto.getSkillDtos().stream().map(SkillConverter::dtoToEntity).collect(Collectors.toList()));
+		//user.setSkills(userDto.getSkillDtos().stream().map(SkillConverter::dtoToEntity).collect(Collectors.toList()));
 		return user;
 	}
 

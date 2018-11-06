@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('demo.services', []).factory('UserService',
+angular.module('empapp', []).factory('UserService',
 		[ "$http", "CONSTANTS", function($http, CONSTANTS) {
 			var service = {};
 			service.getUserById = function(userId) {

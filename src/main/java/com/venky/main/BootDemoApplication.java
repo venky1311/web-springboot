@@ -35,6 +35,6 @@ public class BootDemoApplication
 		User user= new User("Venky", "abc", null);
 		user.setSkills(Arrays.asList(new Skill("java"), new Skill("js")));
 		user= userRepository.save(user);
-	}
-*/
+	}*/
+
 }

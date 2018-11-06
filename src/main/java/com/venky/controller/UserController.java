@@ -7,14 +7,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.venky.dto.UserDto;
+import com.venky.entity.User;
 import com.venky.service.UserService;
 import com.venky.utils.Constants;
 
 @RestController
-@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
@@ -30,8 +31,10 @@ public class UserController {
 		return userService.getAllUsers();
 	}
 	
-	@RequestMapping(value= Constants.SAVE_USER, method= RequestMethod.POST)
-	public void saveUser(@RequestBody UserDto userDto) {
-		userService.saveUser(userDto);
+	@RequestMapping(value="/employee", method=RequestMethod.POST)
+	@ResponseBody
+	public User saveUser(@RequestBody UserDto userDto) {
+		System.out.println("Creating employee's ");
+		return userService.saveUser(userDto);
 	}
 }

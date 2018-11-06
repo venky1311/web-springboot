@@ -19,6 +19,7 @@ app.controller('LoginController', function($scope) {
 			}
 		else
 			{
+			console.log();
 			console.error("unsuccessful");
 			}
 	}

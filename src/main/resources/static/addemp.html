@@ -2,18 +2,31 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Adding Employees</title>
 <script src="js/lib/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-<script src="js/app/DemoController.js"></script>
+<script src="js/lib/angular-route.min.js"></script>
 <script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/app/EmployeeAdd.js"></script>
 <link rel="stylesheet" href="css/lib/bootstrap.min.css" />
 <link rel="stylesheet" href="css/app/app.css" />
 </head>
-<body ng-app="app">
-    <div ng-controller="DemoController as vm">
-        <img alt="" ng-src="{{vm.AbsoluteImageUrl}}" />
-       <!--  <img alt="" ng-src="https://angularjs.org/img/{{vm.ImageFileName}}" /> -->
-    </div>
+<body ng-app="empapp" ng-controller="EmployeeAdd">
+<form ng-submit="EmpSave()">
+	<div class="background">
+		<div class="center">
+			<div class="content">
+				<h2>Add Employee</h2>
+				<br><br>
+				<div>
+				<input type="text" id="username" ng-model="userName" placeholder="Enter the UserName" /> 
+				<input type="text" id="password" ng-model="passWord" placeholder="Enter the PassWord">
+				</div>
+				<div> 
+				<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
 </body>
-</html> 
+</html>

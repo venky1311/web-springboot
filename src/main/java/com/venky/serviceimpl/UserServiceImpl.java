@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.venky.converter.UserConverter;
 import com.venky.dto.UserDto;
+import com.venky.entity.User;
 import com.venky.repository.UserRepository;
 import com.venky.service.UserService;
 
@@ -21,8 +22,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void saveUser(UserDto userDto) {
-		userRepository.save(UserConverter.dtoToEntity(userDto));
+	public User saveUser(UserDto userDto) {
+		return userRepository.save(UserConverter.dtoToEntity(userDto));
 	}
 
 	@Override

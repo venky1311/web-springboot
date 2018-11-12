@@ -1,37 +1,35 @@
 package com.venky.entity;
 
 import java.io.Serializable;
-import java.util.LinkedList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 
 
 @Entity
+@Table(name="UserTable")
 public class User implements Serializable{
 
     private static final long serialVersionUID = 0x62A6DA99AABDA8A8L;
 	
-	@Column
+    @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Id
+    @Column(name="User_Id")
 	private Integer userId;
-    @Column
+	
+    @Column(name="User_Name")
     private String userName;
-    @Column
+    
+    @Column(name="PassWord")
     private String passWord;
     
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Skill> skills= new LinkedList<>();
-
-    public Integer getUserId() {
+      public Integer getUserId() {
         return userId;
     }
 
@@ -54,21 +52,22 @@ public class User implements Serializable{
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
 	}
+	
+	  public User(Integer userId, String userName, String passWord) {
+	        this.userId = userId;
+	        this.userName = userName;
+	        this.passWord = passWord;
+	    }
+	  
+	  public User(User user)
+		{
+			this.userId = user.getUserId();
+			this.userName = user.getUserName();
+			this.passWord = user.getPassWord();
+		}
+	  
+	  public User()
+		{
+		}
 
-	public List<Skill> getSkills() {
-        return skills;
-    }
-
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
-    }
-
-    public User() {
-    }
-
-    public User(String userName, String passWord, List<Skill> skills) {
-        this.userName = userName;
-        this.passWord = passWord;
-        this.skills = skills;
-    }
 }

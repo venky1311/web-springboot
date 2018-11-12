@@ -1,21 +1,26 @@
 package com.venky.dto;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.venky.entity.User;
 
 public class UserDto {
 	
     Integer userId;
     String userName;
 	String passWord;
-    List<SkillDto> skillDtos= new ArrayList<>();
+    //List<SkillDto> skillDtos= new ArrayList<>();
 
-    public UserDto(Integer userId, String userName, String passWord, List<SkillDto> skillDtos) {
+    public UserDto(Integer userId, String userName, String passWord) {
         this.userId = userId;
         this.userName = userName;
         this.passWord = passWord;
-        this.skillDtos = skillDtos;
     }
+	
+	public UserDto(User user)
+	{
+		this.userId = user.getUserId();
+		this.userName = user.getUserName();
+		this.passWord = user.getPassWord();
+	}
 
     public UserDto() {
     }
@@ -44,11 +49,4 @@ public class UserDto {
 		this.passWord = passWord;
 	}
 
-    public List<SkillDto> getSkillDtos() {
-        return skillDtos;
-    }
-
-    public void setSkillDtos(List<SkillDto> skillDtos) {
-        this.skillDtos = skillDtos;
-    }
 }

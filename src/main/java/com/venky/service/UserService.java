@@ -1,16 +1,14 @@
 package com.venky.service;
 
-import java.util.List;
 
-import com.venky.dto.UserDto;
 import com.venky.entity.User;
 
 public interface UserService 
 {
-	 User saveUser(UserDto userDto);
-	 
-	 UserDto getUserById(Integer userId);
+	User saveUser(User user);
+
+	 User getUserById(Integer userId);
 	   
-	 List<UserDto> getAllUsers();
+	 /*List<UserDto> getAllUsers();*/
  
 }
